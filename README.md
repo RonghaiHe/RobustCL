@@ -44,8 +44,8 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <!--<li><a href="#prerequisites">Prerequisites</a></li>-->
-        <li><a href="#installation">Installation</a></li>
-      </ul>
+        <!--<li><a href="#installation">Installation</a></li>
+      </ul>-->
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -70,7 +70,7 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
 
 <!-- GETTING STARTED -->
 ## Getting Started
-### Installation
+
 1. Since this is a Python program, you will need **Python3**. Please Make sure you have it installed.
 2. Simply clone the repo
    ```sh
@@ -97,7 +97,26 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Structure of Repositoy
 
+Repository
+- `algorithms`, a directory containing all algorithms used et al.
+  - `BDA.py`
+  - `CI.py`
+  - `CU.py`
+  - `DCL_GS.py`
+  - `DMV.py`
+  - `DR.py`
+  - `func_detect_fault.py`
+- `others`, a directory containing other calculation in the paper
+  - `KL_calc.py`
+  - `video_output.py`
+- `draw.py`
+- `main_fix.py`
+- `parameters.py`
+- `requirements.txt`, a file containing all Python libraries needed.
+- `shell_main.fix.sh`.
+- `utils.py`
 
 <!-- ROADMAP -->
 ## Roadmap
