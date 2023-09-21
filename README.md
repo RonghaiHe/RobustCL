@@ -49,7 +49,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <!--<li><a href="#contributing">Contributing</a></li>-->
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -61,7 +61,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Introduction
 
-[![Cover][cover]](https://github.com/RonghaiHe/RobustCL)
+<!--[![Cover][cover]](https://github.com/RonghaiHe/RobustCL)-->
 
 Cooperative Localization (CL) plays a crucial role in achieving precise localization without relying on localization sensors. However, the performance of CL can be significantly affected by **failed communication and biased measurements**. This code shows a robust decentralized CL method that addresses these challenges effectively.
 
@@ -149,8 +149,9 @@ Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-* All authors of this paper
-* A recommended [template](https://github.com/othneildrew/Best-README-Template/tree/master), modified as this README.md.
+* All authors of this paper;
+* This [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias). Some of codes come from that;
+* A recommended [template](https://github.com/othneildrew/Best-README-Template/tree/master). This README.md is modified from that.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
