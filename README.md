@@ -65,7 +65,7 @@
 
 Cooperative Localization (CL) plays a crucial role in achieving precise localization without relying on localization sensors. However, the performance of CL can be significantly affected by **failed communication and biased measurements**. This code shows a robust decentralized CL method that addresses these challenges effectively.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
 <!-- GETTING STARTED -->
@@ -81,7 +81,7 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
   pip install -r requirements.txt
   ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -95,12 +95,12 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
   bash shell_main_fix.sh
   ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 ## Structure of Repositoy
 
 Repository
-- `algorithms`, a directory containing all algorithms used et al.
+- `algorithms`, a directory containing all algorithms used et al, **off the record temporarily**.
   - `BDA.py`
   - `CI.py`
   - `CU.py`
@@ -109,14 +109,14 @@ Repository
   - `DR.py`
   - `func_detect_fault.py`
 - `others`, a directory containing other calculation in the paper
-  - `KL_calc.py`
-  - `video_output.py`
-- `draw.py`
-- `main_fix.py`
-- `parameters.py`
+  - `KL_calc.py`: calulate the numerical KL-divergence
+  - `video_output.py`: multiple figures -> video
+- `draw.py`: draw the final figures
+- `main_fix.py`: mian function, set the fix running parameters here
+- `parameters.py`: set the system parameters
 - `requirements.txt`, a file containing all Python libraries needed.
-- `shell_main.fix.sh`.
-- `utils.py`
+- `shell_main.fix.sh`: a shell file to run the program simultaneously
+- `utils.py`: execute the whole simulation
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -124,7 +124,7 @@ Repository
 - [x] Complete Python project structure
 <!--- [x] Add Changelog-->
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
 
@@ -142,7 +142,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
 
@@ -151,7 +151,7 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
 
@@ -162,7 +162,7 @@ RonghaiHe - [E-mail](herh5@gmail.com)
 
 Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
 
@@ -172,7 +172,7 @@ Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 * This [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias). Some of codes come from that;
 * A recommended [template](https://github.com/othneildrew/Best-README-Template/tree/master). This README.md is modified from that.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 
 
