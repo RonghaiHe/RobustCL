@@ -77,9 +77,9 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
    git clone https://github.com/RonghaiHe/RobustCL.git
    ```
 3. Install the Python libraries that this program depends on through `requirements.txt`:
-  ```sh
-  pip install -r requirements.txt
-  ```
+   ```sh
+   pip install -r requirements.txt
+   ```
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
