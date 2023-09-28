@@ -169,7 +169,7 @@ Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 * All authors of this paper;
-* This [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias). Some of codes come from that;
+* Inspired by [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias);
 * A recommended [template](https://github.com/othneildrew/Best-README-Template/tree/master). This README.md is modified from that.
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
