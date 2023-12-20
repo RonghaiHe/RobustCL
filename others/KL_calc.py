@@ -2,6 +2,7 @@ import numpy as np
 from scipy.integrate import quad
 import scipy.stats
 
+
 def integrand(x, a):
     '''
     the joint distribution to be integrated(marginalized)
@@ -11,8 +12,10 @@ def integrand(x, a):
     :return: pdf of marginal distribution
     '''
     global E_V, Sigma_v0, Sigma_v
-    y = 1/(2*np.pi*Sigma_v0*Sigma_v)/x*np.exp(-1/(2*Sigma_v**2)*(1 - a/x)**2 - 1/(2*Sigma_v0**2)*(x - E_V)**2)
+    y = 1/(2*np.pi*Sigma_v0*Sigma_v)/x*np.exp(-1/(2*Sigma_v**2)
+                                              * (1 - a/x)**2 - 1/(2*Sigma_v0**2)*(x - E_V)**2)
     return y
+
 
 def Simpson_integral(xs, n, step_size):
     '''
@@ -25,15 +28,16 @@ def Simpson_integral(xs, n, step_size):
     '''
     sum = 0
     for i in range(n):
-        if(i==0 or i==n-1):
+        if (i == 0 or i == n-1):
             sum += xs[i]
-        elif i % 2: 
+        elif i % 2:
             sum += 4*xs[i]
         else:
             sum += 2*xs[i]
     return sum * step_size / 3
 
-# Parameters of grid about the numerical integration 
+
+# Parameters of grid about the numerical integration
 a_start = -1
 a_end = 1
 step_size = 0.001
@@ -62,10 +66,10 @@ for v in vs:
 
     # circulate
     for a in a_s:
-        
+
         # Using numerical integration to calculate the actual distribution
         integral_result = quad(lambda x: integrand(x, a), -np.inf, np.inf)
-        
+
         integral_results.append(integral_result[0])
 
     integral_results = np.abs(np.array(integral_results))
@@ -74,9 +78,10 @@ for v in vs:
 
     # Normal distribution
     sigma = np.sqrt(Sigma_v0**2 + Sigma_v**2 * (E_V**2 + Sigma_v0**2))
-    Normal = scipy.stats.norm.pdf(a_s, loc = E_V, scale = sigma)
+    Normal = scipy.stats.norm.pdf(a_s, loc=E_V, scale=sigma)
 
-    KL_normal.append(Simpson_integral(Normal * np.log2(Normal / integral_results), len(a_s), step_size))
+    KL_normal.append(Simpson_integral(
+        Normal * np.log2(Normal / integral_results), len(a_s), step_size))
 
 # write out the data
 np.savetxt('KL_calc_v.txt', KL_normal)
