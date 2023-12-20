@@ -100,28 +100,28 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
 ## Structure of Repositoy
 
 Repository
-- `algorithms`, a directory containing all algorithms used et al, **off the record temporarily**.
-  - `BDA.py`
-  - `CI.py`
-  - `CU.py`
-  - `DCL_GS.py`
-  - `DMV.py`
-  - `DR.py`
-  - `func_detect_fault.py`
+- `algorithms`, a directory containing all algorithms used et al, ~~off the record temporarily~~**up to date**.
+  - `BDA.py`: "BDA" algorithm in the paper;
+  - `CI.py`: "CI" algorithm in the paper;
+  - `CU.py`: "BDA-CU", "CI+CU" algorithms in the paper;
+  - `DCL_GS.py`: Our proposed method in the paper;
+  - `DMV.py`: "DMV" algorithm in the paper;
+  - `DR.py`: "DR" method in the paper;
+  - `func_detect_fault.py`: multiple functions about detecting the fault measurement;
 - `others`, a directory containing other calculation in the paper
-  - `KL_calc.py`: calulate the numerical KL-divergence
-  - `video_output.py`: multiple figures -> video
-- `draw.py`: draw the final figures
-- `main_fix.py`: mian function, set the fix running parameters here
-- `parameters.py`: set the system parameters
-- `requirements.txt`, a file containing all Python libraries needed.
-- `shell_main.fix.sh`: a shell file to run the program simultaneously
+  - `KL_calc.py`: calulate the numerical KL-divergence;
+  - `video_output.py`: multiple figures -> video;
+- `draw.py`: draw the final figures;
+- `main_fix.py`: main function. Set the fix running parameters here;
+- `parameters.py`: sets the system parameters;
+- `requirements.txt`, a file containing all Python libraries needed;
+- `shell_main.fix.sh`: a shell file to run the program simultaneously;
 - `utils.py`: execute the whole simulation
 
 <!-- ROADMAP -->
 ## Roadmap
-
-- [x] Complete Python project structure
+- [x] Whole codes uploaded
+- [ ] Complete Python project structure
 <!--- [x] Add Changelog-->
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
