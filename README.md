@@ -121,7 +121,10 @@ Repository
 <!-- ROADMAP -->
 ## Roadmap
 - [x] Whole codes uploaded
+- [x] Formatted with pep8
 - [ ] Complete Python project structure
+
+See `Changelog.md` for the change at each version
 <!--- [x] Add Changelog-->
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
