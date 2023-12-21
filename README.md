@@ -17,7 +17,7 @@
   <h3 align="center">Robust Cooperative localization simulation</h3>
 
   <p align="center">
-    A simulation code for *Robust Cooperative Localization with Failed Communication and Biased Measurements*
+    A simulation code for <em>Robust Cooperative Localization with Failed Communication and Biased Measurements</em>
     <!--<br />
     <a href="https://github.com/RonghaiHe/RobustCL"><strong>Explore the docs »</strong></a>
     <br />-->
@@ -94,6 +94,19 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
   ```sh
   bash shell_main_fix.sh
   ```
+- If runinng the **mission**(e.g. 1) with multiple failed communication probability simultaneously:
+  ```sh
+  bash shell_main.sh 1
+  ```
+
+  Details of missions are:
+
+  0. Draw the sample trajectory, for Response;
+  1. ARMSE over time, for Fig. 1 & Fig. 2 in the paper;
+  2. weight of M-estimation over time, for Fig. 3 in the paper;
+  3. ARMSE over tau, for Fig. 4 in the paper;
+  4. animation about ARMSE over time, for videos about the paper;
+  5. animation about ARMSE over tau, for videos about the paper
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
@@ -172,7 +185,7 @@ Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 * All authors of this paper;
-* Inspired by [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias);
+* Inspired by this [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias);
 * A recommended [template](https://github.com/othneildrew/Best-README-Template/tree/master). This README.md is modified from that.
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
