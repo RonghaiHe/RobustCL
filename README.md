@@ -101,12 +101,17 @@ Cooperative Localization (CL) plays a crucial role in achieving precise localiza
 
   Details of missions are:
 
-  0. Draw the sample trajectory, for Response;
-  1. ARMSE over time, for Fig. 1 & Fig. 2 in the paper;
-  2. weight of M-estimation over time, for Fig. 3 in the paper;
-  3. ARMSE over tau, for Fig. 4 in the paper;
-  4. animation about ARMSE over time, for videos about the paper;
-  5. animation about ARMSE over tau, for videos about the paper
+  `0` Draw the sample trajectory, for Response;
+
+  `1` ARMSE over time, for Fig. 1 & Fig. 2 in the paper;
+
+  `2` weight of M-estimation over time, for Fig. 3 in the paper;
+
+  `3` ARMSE over tau, for Fig. 4 in the paper;
+
+  `4` animation about ARMSE over time, for videos about the paper;
+
+  `5` animation about ARMSE over tau, for videos about the paper
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
