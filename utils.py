@@ -3,6 +3,7 @@ import numpy as np
 import math
 import parameters
 import draw
+import argparse
 from algorithms.DR import Robot, Robot_true
 from algorithms.BDA import Robot_BDA_EKF
 from algorithms.DMV import Robot_DMV
@@ -15,7 +16,7 @@ R_1 = parameters.R_1
 MU_RANGE_BEARING, MU_POSE = parameters.MU_RANGE_BEARING, parameters.MU_POSE
 BIAS_SIGMA_RANGE_BEARING, BIAS_SIGMA_POSE = parameters.BIAS_SIGMA_RANGE_BEARING, parameters.BIAS_SIGMA_POSE
 
-comm_fail_prob = parameters.comm_fail_prob
+# comm_fail_prob = parameters.comm_fail_prob
 COMM_RATE = parameters.COMM_RATE
 
 SIGMA_V_INPUT = parameters.SIGMA_V_INPUT
@@ -1184,10 +1185,16 @@ def experiment0(args):
     '''
     global fig, ax, number_shall
 
-    numbers = args['numbers']
-    init_X = args['init_X']
-    types = args['types']
-    flag = args['flag']
+    if isinstance(args, dict):
+        numbers = args['numbers']
+        init_X = args['init_X']
+        types = args['types']
+        flag = args['flag']
+    elif isinstance(args, argparse.Namespace):
+        numbers = args.numbers
+        init_X = args.init_X
+        types = args.types
+        flag = args.flag
 
     global meas_bia_prob, comm_fail_prob
     meas_bia_prob = parameters.meas_bia_prob
@@ -1202,11 +1209,17 @@ def experiment1(args):
 
     :param args: parameters set at the beginning
     '''
-
-    numbers = args['numbers']
-    init_X = args['init_X']
-    types = args['types']
-    flag = args['flag']
+    # Judge if args is dict or variable in argparse
+    if isinstance(args, dict):
+        numbers = args['numbers']
+        init_X = args['init_X']
+        types = args['types']
+        flag = args['flag']
+    elif isinstance(args, argparse.Namespace):
+        numbers = args.numbers
+        init_X = args.init_X
+        types = args.types
+        flag = args.flag
 
     R_list, A_list = {}, {}  # 20*10000
     total_R_list, total_A_list = {}, {}  # 20*6*10000
@@ -1279,10 +1292,16 @@ def experiment2(args):
     :param args: parameters set at the beginning
     '''
 
-    numbers = args['numbers']
-    init_X = args['init_X']
-    types = args['types']
-    flag = args['flag']
+    if isinstance(args, dict):
+        numbers = args['numbers']
+        init_X = args['init_X']
+        types = args['types']
+        flag = args['flag']
+    elif isinstance(args, argparse.Namespace):
+        numbers = args.numbers
+        init_X = args.init_X
+        types = args.types
+        flag = args.flag
 
     M_list = {}  # 20*10000
     total_M_list = {}  # 20*6*10000
@@ -1340,10 +1359,16 @@ def experiment3(args):
     meas_bia_prob = parameters.meas_bia_prob
     comm_fail_prob = parameters.comm_fail_prob
 
-    numbers = args['numbers']
-    init_X = args['init_X']
-    types = args['types']
-    flag = args['flag']
+    if isinstance(args, dict):
+        numbers = args['numbers']
+        init_X = args['init_X']
+        types = args['types']
+        flag = args['flag']
+    elif isinstance(args, argparse.Namespace):
+        numbers = args.numbers
+        init_X = args.init_X
+        types = args.types
+        flag = args.flag
 
     R_list, A_list = {}, {}  # 20*11
     total_R_list, total_A_list = {}, {}  # 20*6*11
@@ -1430,10 +1455,16 @@ def experiment4(args):
     '''
     global fig, ax, number_shall
 
-    numbers = args['numbers']
-    init_X = args['init_X']
-    types = args['types']
-    flag = args['flag']
+    if isinstance(args, dict):
+        numbers = args['numbers']
+        init_X = args['init_X']
+        types = args['types']
+        flag = args['flag']
+    elif isinstance(args, argparse.Namespace):
+        numbers = args.numbers
+        init_X = args.init_X
+        types = args.types
+        flag = args.flag
 
     global meas_bia_prob, comm_fail_prob
     meas_bia_prob = parameters.meas_bia_prob  # 16 4
@@ -1451,10 +1482,16 @@ def experiment5(args):
     '''
     global fig, ax, number_shall
 
-    numbers = args['numbers']
-    init_X = args['init_X']
-    types = args['types']
-    flag = args['flag']
+    if isinstance(args, dict):
+        numbers = args['numbers']
+        init_X = args['init_X']
+        types = args['types']
+        flag = args['flag']
+    elif isinstance(args, argparse.Namespace):
+        numbers = args.numbers
+        init_X = args.init_X
+        types = args.types
+        flag = args.flag
 
     global meas_bia_prob, comm_fail_prob
     meas_bia_prob = parameters.meas_bia_prob  # 16 4

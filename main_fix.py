@@ -81,7 +81,7 @@ if __name__ == '__main__':
         # simulation round
         'numbers': 1000,
         # program mission, see variable **MISSION_DETAIL**
-        'mission': 5
+        'mission': 1
     }
 
     main(args)
