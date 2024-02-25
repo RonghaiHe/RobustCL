@@ -17,7 +17,9 @@
   <h3 align="center">Robust Cooperative localization simulation</h3>
 
   <p align="center">
-    A simulation code for <em>Robust Cooperative Localization with Failed Communication and Biased Measurements</em>
+    A simulation code for <em>Robust Cooperative Localization with Failed Communication and Biased Measurements</em>,
+    <br />
+    published in <a href="https://ieeexplore.ieee.org/document/10423111">IEEE Robotics and Automation Letters</a>
     <!--<br />
     <a href="https://github.com/RonghaiHe/RobustCL"><strong>Explore the docs »</strong></a>
     <br />-->
@@ -64,6 +66,19 @@
 <!--[![Cover][cover]](https://github.com/RonghaiHe/RobustCL)-->
 
 Cooperative Localization (CL) plays a crucial role in achieving precise localization without relying on localization sensors. However, the performance of CL can be significantly affected by **failed communication and biased measurements**. This code shows a robust decentralized CL method that addresses these challenges effectively.
+
+Please cite this work when referencing:
+```
+@ARTICLE{RobustCL_RAL,
+  author={He, Ronghai and Shan, Yunxiao and Huang, Kai},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Robust Cooperative Localization With Failed Communication and Biased Measurements}, 
+  year={2024},
+  volume={9},
+  number={3},
+  pages={2997-3004}
+}
+```
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
