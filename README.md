@@ -1,14 +1,16 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+<div align="center">
+  
+  [![Contributors][contributors-shield]][contributors-url]
+  [![Forks][forks-shield]][forks-url]
+  [![Stargazers][stars-shield]][stars-url]
+  [![Issues][issues-shield]][issues-url]
+  [![MIT License][license-shield]][license-url]
 <!--[![LinkedIn][linkedin-shield]][linkedin-url]-->
-
+</div>
 
 
 <!-- PROJECT LOGO -->
-<br />
+
 <div align="center">
   <!--<a href="https://github.com/RonghaiHe/RobustCL">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
@@ -17,9 +19,9 @@
   <h3 align="center">Robust Cooperative localization simulation</h3>
 
   <p align="center">
-    A simulation code for <em>Robust Cooperative Localization with Failed Communication and Biased Measurements</em>,
+    A simulation code for the paper "<em>Robust Cooperative Localization with Failed Communication and Biased Measurements</em>",
     <br />
-    published in <a href="https://ieeexplore.ieee.org/document/10423111">IEEE Robotics and Automation Letters</a>
+    published in <a href="https://ieeexplore.ieee.org/document/10423111">IEEE Robotics and Automation Letters</a> with a supplemental video that is also in <a href="https://www.bilibili.com/video/BV14C411z7iM/">bilibili</a>
     <!--<br />
     <a href="https://github.com/RonghaiHe/RobustCL"><strong>Explore the docs »</strong></a>
     <br />-->
@@ -50,8 +52,10 @@
       </ul>-->
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#structure">Structure</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <!--<li><a href="#contributing">Contributing</a></li>-->
+    <li><a href="#errata">Errata</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -79,6 +83,8 @@ Please cite this work when referencing:
   pages={2997-3004}
 }
 ```
+
+About this paper: there are a few mistakes shown in the <a href="#errata">Errata</a> part.
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
@@ -130,9 +136,9 @@ Please cite this work when referencing:
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
-## Structure of Repositoy
+## Structure
 
-Repository
+Repository contains: 
 - `algorithms`, a directory containing all algorithms used et al, ~~off the record temporarily~~**up to date**.
   - `BDA.py`: "BDA" algorithm in the paper;
   - `CI.py`: "CI" algorithm in the paper;
@@ -180,7 +186,14 @@ Don't forget to give the project a star! Thanks again!
 
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
+## Errata
+The conclusion of the paper isn't wrong, whereas there are a few mistakes in this paper. Sorry about that and declare here:
 
+1. In formulas (17) and (20), the dimension of $\boldsymbol{I}$ should be $3N\times 3N$ rather than $N\times N$ (By Chang Liu)
+2. Formula (26) is wrong, $\boldsymbol{S}_ {t+1} \to \boldsymbol{M}_{t+1}$ (By Chang Liu)
+3. (Confusion Part)In the formula (23), the variable $\hat{\boldsymbol{X}}_ {t+1 \mid t}^i$ is shown for explanation. During the iteration, it is replaced by the result after $n$-th iterations. Specifically, we use the latest iteration result, `X_all`, to calculate the residual item in this <a href="https://github.com/RonghaiHe/RobustCL/blob/50a3c3ff5e449491687bc112af22b4804b0d721a/algorithms/DCL_GS.py#L872">code</a> (By Chang Liu) 
+
+Still updating ...
 
 <!-- LICENSE -->
 ## License
@@ -194,7 +207,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-RonghaiHe - [E-mail](herh5@gmail.com)
+RonghaiHe - [E-mail](mailto:herh5@gmail.com)
 
 Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 
@@ -205,6 +218,7 @@ Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 * All authors of this paper;
+* Reader pointing out the errors about the paper: Chang liu;
 * Inspired by this [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias);
 * A recommended [template](https://github.com/othneildrew/Best-README-Template/tree/master). This README.md is modified from that.
 
