@@ -192,6 +192,7 @@ The conclusion of the paper isn't wrong, whereas there are a few mistakes in thi
 1. In formulas (17) and (20), the dimension of $\boldsymbol{I}$ should be $3N\times 3N$ rather than $N\times N$ (By Chang Liu)
 2. Formula (26) is wrong, $\boldsymbol{S}_ {t+1} \to \boldsymbol{M}_{t+1}$ (By Chang Liu)
 3. (Confusion Part)In the formula (23), the variable $\hat{\boldsymbol{X}}_ {t+1 \mid t}^i$ is shown for explanation. During the iteration, it is replaced by the result after $n$-th iterations. Specifically, we use the latest iteration result, `X_all`, to calculate the residual item in this <a href="https://github.com/RonghaiHe/RobustCL/blob/50a3c3ff5e449491687bc112af22b4804b0d721a/algorithms/DCL_GS.py#L872">code</a> (By Chang Liu) 
+4. The serial numbers of references used for comparison in Fig. 1, Fig. 2, Fig. 4 and TABLE II haven't been updated. The **right** serial numbers can be seen in the last paragraph of section V-A: `DMV [13], BDA [12], BDA-CU [4] and CI+CU [17]` (By a professor).
 
 Still updating ...
 
@@ -218,7 +219,7 @@ Project Link: [RobustCL](https://github.com/RonghaiHe/RobustCL)
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 * All authors of this paper;
-* Reader pointing out the errors about the paper: Chang liu;
+* Readers pointing out errors or improvements about the paper: professors, Chang liu;
 * Inspired by this [repository](https://github.com/RonghaiHe/multirobot_localization_tsangkai_utias);
 * A recommended [template](https://github.com/othneildrew/Best-README-Template/tree/master). This README.md is modified from that.
 
