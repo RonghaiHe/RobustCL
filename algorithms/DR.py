@@ -176,21 +176,33 @@ class Robot_true:
         '''
         x = np.array([.2, .4, .2, -.2, -.2, .2])*2
         y = np.array([.1, 0, -.1, -.1, .1, .1])*2
-        fx = parameters.rot_mat_2d(self.X_true[2])[
-            0:2][0:2].T @ (np.array([x, y]))
-        px = np.array(fx[0, :] + self.X_true[0]).flatten()
-        py = np.array(fx[1, :] + self.X_true[1]).flatten()
+
+        # Create points as a 2xN matrix
+        points = np.vstack((x, y))
+        # Apply rotation directly
+        rotated_points = parameters.rot_mat_2d(
+            self.X_true[2])[0:2][0:2].T @ points
+
+        # Translate to robot position
+        px = rotated_points[0, :] + self.X_true[0]
+        py = rotated_points[1, :] + self.X_true[1]
+
         ax.plot(px, py, '-', c='k')
 
-    def draw(self, ax):
+    def draw(self, ax, str_color=None, str_label=None):
         '''
         Draw the robot in the figure
 
         :param: ax: the figure
         '''
-        if (self._id == 0):
-            ax.plot(np.array(self.X_true_list).T[0], np.array(
-                self.X_true_list).T[1], 'o-', markersize=2, c='k', label='GroundTruth')
+
+        if str_color is None and str_label is None:
+            if (self._id == 0):
+                ax.plot(np.array(self.X_true_list).T[0], np.array(
+                    self.X_true_list).T[1], 'o-', markersize=2, c='k', label='GroundTruth')
+            else:
+                ax.plot(np.array(self.X_true_list).T[0], np.array(
+                    self.X_true_list).T[1], 'o-', markersize=2, c='k')
         else:
             ax.plot(np.array(self.X_true_list).T[0], np.array(
-                self.X_true_list).T[1], 'o-', markersize=2, c='k')
+                self.X_true_list).T[1], 'o-', markersize=1, c=str_color, label=str_label)
