@@ -134,6 +134,10 @@ About this paper: there are a few mistakes shown in the <a href="#errata">Errata
 
   `5` animation about ARMSE over tau, for videos about the paper
 
+- If runinng the **mission**(e.g. 1) with multiple failed communication probability simultaneously in the original terminal, try using [tmuxp](https://github.com/tmux-python/tmuxp) after installing tmux:
+  ```sh
+  MISSION=1 tmuxp load robust_cl.yaml
+  ```
 <!--<p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
 ## Structure
