@@ -18,10 +18,16 @@ EACH_COLOR = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#e377c2',
               '#7f7f7f', '#bcbd22', '#17becf', '#1f77b4', 'k']
 
 MARKER_STYLE = ['o', '^', 'o', '*', 'o', 'o', '*', '^', 's', '*', '*']
+# LABELS = [
+#     'BDA[8]', '1', 'BDA-CU[2]', '1', '1', '1', 'DMV[1]', '1', '1', '1',
+#     '1', '1', 'CI+CU[13]', '1', '1', '1', '1', '1', '1', '1',
+#     '1', '1', '1', '1', '1', '1', '1', '1', 'Ours', '1',
+#     'CCL', 'DR']
+
 LABELS = [
-    'BDA[8]', '1', 'BDA-CU[2]', '1', '1', '1', 'DMV[1]', '1', '1', '1',
-    '1', '1', 'CI+CU[13]', '1', '1', '1', '1', '1', '1', '1',
-    '1', '1', '1', '1', '1', '1', '1', '1', 'Ours', '1',
+    'BDA', '1', 'BDA-CU', '1', '1', '1', 'DMV', '1', '1', '1',
+    '1', '1', 'CI+CU', '1', '1', '1', '1', '1', '1', '1',
+    '1', '1', '1', '1', '1', '1', '1', '1', '本文', '1',
     'CCL', 'DR']
 
 MEAN_LABELS = [r'$\Delta x$', r'$\Delta y$']
@@ -34,7 +40,7 @@ def each_mean_(numbers, _list, tag='R'):
     '''
     output RMSE of each robot over time
 
-    :param: numbers: int, the number of simulation time
+    :param: numbers: int, the number of 模拟时间
     :param: _list: dict, the dict of RMSE of each robot
     :param: tag: str, the tag of metric, 'R' for RMSE, 'A' for ANEES
     '''
@@ -60,13 +66,17 @@ def total_mean_(numbers, Lists, tag):
     '''
     output RMSE of each algorithm(mission 1)
 
-    :param: numbers: int, the number of simulation time
+    :param: numbers: int, the number of 模拟时间
     :param: _list: dict, the dict of RMSE of each robot
     :param: tag: str, the tag of metric, 'R' for RMSE, 'A' for ANEES
     '''
 
-    plt.style.use(['science', 'ieee', 'no-latex'])
-
+    plt.style.use(['science', 'ieee', 'no-latex', 'cjk-sc-font'])
+    plt.rcParams.update({
+        'font.family': 'Noto Serif CJK JP',
+        'axes.unicode_minus': False,
+        'figure.dpi': 100,
+    })
     path = './data/relative-pose/'
     if not os.path.exists(path):
         os.makedirs(path)
@@ -82,7 +92,8 @@ def total_mean_(numbers, Lists, tag):
             #         np.mean(List[int(numbers/2):])]
 
             # v1.1.0, divides 3 parts, ...
-            Mean = [np.mean(List[:int(np.ceil(numbers/3))]), np.mean(List[int(np.ceil(numbers/3)):int(np.ceil(2*numbers/3))]), np.mean(List[int(np.ceil(2*numbers/3)):])]
+            Mean = [np.mean(List[:int(np.ceil(numbers/3))]), np.mean(List[int(np.ceil(numbers/3))
+                            :int(np.ceil(2*numbers/3))]), np.mean(List[int(np.ceil(2*numbers/3)):])]
             np.savetxt(f, Mean, fmt='%.4f', newline=',')
             f.write('\n')
 
@@ -95,7 +106,7 @@ def total_mean_(numbers, Lists, tag):
                  c=EACH_COLOR[count], linewidth=2)
         count = count + 1
 
-    ax3.set_xlabel('simulation time [s]')
+    ax3.set_xlabel('模拟时间 [s]')
     ax3.set_xlim(left=0, right=(t[-1]+1e-1))
 
     path_fig = './figures/relative-pose/'
@@ -120,7 +131,7 @@ def total_mean_(numbers, Lists, tag):
         ax3.set_ylim(bottom=0, top=2)
 
         # v1.0.0, original division, some texts
-        # ax3.text(50, 1.9, r'$\rho = %.1f$' % parameters.comm_fail_prob,
+        # ax3.text(50, 1.9, r'$\kappa = %.1f$' % parameters.comm_fail_prob,
         #          color='k', ha='center', va='center', bbox=TEXT_BBOX)
         # ax3.text(43, 1.7, r'$\tau = 0$', color='k', ha='center',
         #          va='center', fontsize=6, bbox=TEXT_BBOX)
@@ -128,7 +139,7 @@ def total_mean_(numbers, Lists, tag):
         #          va='center', fontsize=6, bbox=TEXT_BBOX)
 
         # v1.1.0, divides 3 parts, ...
-        ax3.text(41, 1.7, r'$\rho = %.1f$' % parameters.comm_fail_prob,
+        ax3.text(41, 1.7, r'$\kappa = %.1f$' % parameters.comm_fail_prob,
                  color='k', ha='center', va='center', bbox=TEXT_BBOX)
         ax3.text(8, 1.93, r'$\tau = 0$', color='k', ha='center',
                  va='center', fontsize=6, bbox=TEXT_BBOX)
@@ -138,7 +149,7 @@ def total_mean_(numbers, Lists, tag):
                  va='center', fontsize=6, bbox=TEXT_BBOX)
 
         plt.savefig(path_fig + 'RMSE_time_avg_' +
-                    str(parameters.comm_fail_prob) + '.pdf', dpi=600, bbox_inches='tight')
+                    str(parameters.comm_fail_prob) + '.pdf', dpi=100, bbox_inches='tight')
     elif tag == 'A':
         ax3.legend(loc="upper right")
         ax3.set_ylabel('ANEES')
@@ -148,19 +159,22 @@ def total_mean_(numbers, Lists, tag):
         ax3.set_ylim(bottom=0, top=30)
 
         plt.savefig(path_fig + 'ANEES_time_avg_' +
-                    str(parameters.comm_fail_prob) + '.pdf', dpi=600, bbox_inches='tight')
+                    str(parameters.comm_fail_prob) + '.pdf', dpi=100, bbox_inches='tight')
 
 
 def total_mean_M(numbers, Dicts):
     '''
     draw average weight of M-estimation(mission 2)
 
-    :param: numbers: int, the number of simulation time
+    :param: numbers: int, the number of 模拟时间
     :param: Dicts: dict, the dictionary of average weight of M-estimation
     '''
 
-    plt.style.use(['science', 'ieee', 'no-latex'])
-
+    plt.style.use(['science', 'ieee', 'no-latex', 'cjk-sc-font'])
+    plt.rcParams.update({
+        'font.family': 'Noto Serif CJK JP',
+        'axes.unicode_minus': False,
+    })
     t = np.arange(numbers)*DELTA_T
 
     for rho in (0.1, 0.5, 0.9):
@@ -185,14 +199,14 @@ def total_mean_M(numbers, Dicts):
                          c=EACH_COLOR[count], linewidth=1.5)
                 count = count + 1
 
-        ax3.set_xlabel('simulation time [s]')
+        ax3.set_xlabel('模拟时间 [s]')
         ax3.set_xlim(left=0, right=(t[-1]+1e-1))
         ax3.legend(loc="lower left")
-        ax3.set_ylabel('average weight')
+        ax3.set_ylabel('相对测量平均权重')
         ax3.set_ylim(bottom=0, top=1.2)
 
         # v1.0.0, original division, some texts
-        # ax3.text(50, 1.1, r'$\rho = %.1f$' % rho, color='k',
+        # ax3.text(50, 1.1, r'$\kappa = %.1f$' % rho, color='k',
         #          ha='center', va='center', bbox=TEXT_BBOX)
         # ax3.text(40, 0.1, r'$\tau = 0$', color='k',
         #          ha='center', va='center', bbox=TEXT_BBOX)
@@ -200,7 +214,7 @@ def total_mean_M(numbers, Dicts):
         #          ha='center', va='center', bbox=TEXT_BBOX)
 
         # v1.1.0, divides 3 parts, ...
-        ax3.text(50, 1, r'$\rho = %.1f$' % rho, color='k',
+        ax3.text(50, 1, r'$\kappa = %.1f$' % rho, color='k',
                  ha='center', va='center', bbox=TEXT_BBOX)
         ax3.text(16, 1.1, r'$\tau = 0$', color='k', ha='center',
                  va='center', fontsize=6, bbox=TEXT_BBOX)
@@ -213,7 +227,7 @@ def total_mean_M(numbers, Dicts):
         if not os.path.exists(path_fig):
             os.makedirs(path_fig)
         plt.savefig(path_fig + 'weight_time_avg_' + str(rho) +
-                    '.pdf', dpi=600, bbox_inches='tight')
+                    '.pdf', dpi=300, bbox_inches='tight')
         plt.clf()
 
 
@@ -239,13 +253,17 @@ def bias_mean_(numbers, Lists, std, tag):
     '''
     draw ARMSE of all algorithms over tau
 
-    :param: numbers: int, the number of simulation time
+    :param: numbers: int, the number of 模拟时间
     :param: Lists: dict, the dict of ARMSE-mean of each robot
     :param: std: dict, the dict of ARMSE-std of each robot
     :param: tag: str, the tag of metric, 'R' for RMSE, 'A' for ANEES
     '''
 
-    plt.style.use(['science', 'ieee', 'muted', 'no-latex'])
+    plt.style.use(['science', 'ieee', 'muted', 'no-latex', 'cjk-sc-font'])
+    plt.rcParams.update({
+        'font.family': 'Noto Serif CJK JP',
+        'axes.unicode_minus': False,
+    })
     path = './data/relative-pose/'
     if not os.path.exists(path):
         os.makedirs(path)
@@ -264,10 +282,10 @@ def bias_mean_(numbers, Lists, std, tag):
 
             count = count + 1
 
-    ax3.text(0.25, 3.0, r'$\rho = %.1f$' %
+    ax3.text(0.25, 3.0, r'$\kappa = %.1f$' %
              parameters.comm_fail_prob, color='k', ha='center', va='center')
 
-    ax3.set_xlabel(r'occurrence probability of biased measurements $\tau$')
+    ax3.set_xlabel(r'偏置出现概率 $\tau$')
     ax3.legend(loc="upper left")
 
     path_fig = './figures/relative-pose/'
@@ -277,10 +295,10 @@ def bias_mean_(numbers, Lists, std, tag):
         ax3.set_ylabel('ARMSE [m]')
         ax3.set_ylim(bottom=0, top=3.2)
         plt.savefig(path_fig + 'RMSE__' + str(parameters.comm_fail_prob) +
-                    '.pdf', dpi=600, bbox_inches='tight')
+                    '.pdf', dpi=300, bbox_inches='tight')
     elif tag == 'A':
         ax3.set_ylabel('ANEES')
         ax3.plot([0, prob[-1]], [2, 2], 'k--')
         ax3.set_ylim(bottom=0, top=15)
         plt.savefig(path_fig + 'ANEES__' + str(parameters.comm_fail_prob) +
-                    '.pdf', dpi=600, bbox_inches='tight')
+                    '.pdf', dpi=300, bbox_inches='tight')

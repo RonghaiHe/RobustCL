@@ -1137,18 +1137,21 @@ def run(init_X, numbers=10000, flag=0, types=[-1, 0], comm_fail_prob=0, meas_bia
         elif count == numbers - 1 and mission in [0]:
             draw.plt.style.use(['science', 'ieee', 'no-latex'])
             fig2, ax2 = draw.plt.subplots(1, 1)
+            # ax2.set_xlim([-10, 12])
+            ax2.axis('equal')
             for robot_i in true_robots:
-                robot_i.draw(ax2, draw.EACH_COLOR[robot_i._id], 0)
-                robot_i.plot_shape(ax2, draw.EACH_COLOR[robot_i._id], 0)
+                robot_i.draw(
+                    ax2, draw.EACH_COLOR[robot_i._id], f'robot {robot_i._id + 1}')
+                robot_i.plot_shape(ax2)
 
-            ax2.legend(loc='upper left')
-            ax2.set_xlim([-10, 12])
-            ax2.set_xlabel(r'$x$ [m]')
-            ax2.set_ylabel(r'$y$ [m]')
+            ax2.legend(loc='upper right')
+
+            ax2.set_xlabel(r'$X$ [m]')
+            ax2.set_ylabel(r'$Y$ [m]')
             path_fig = './figures/'
             if not os.path.exists(path_fig):
                 os.makedirs(path_fig)
-            draw.plt.savefig(path_fig + 'Tra0.jpg',
+            draw.plt.savefig(path_fig + 'Tra0.pdf',
                              dpi=600, bbox_inches='tight')
             draw.plt.close()
 

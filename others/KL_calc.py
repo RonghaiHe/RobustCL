@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.integrate import quad
 import scipy.stats
+import matplotlib.pyplot as plt  # Add matplotlib for plotting
 
 
 def integrand(x, a):
@@ -35,6 +36,49 @@ def Simpson_integral(xs, n, step_size):
         else:
             sum += 2*xs[i]
     return sum * step_size / 3
+
+
+def plot_distributions(a_s, actual_dist, normal_dist, velocity_type):
+    """
+    Plot the actual and normal distributions for comparison
+
+    :param a_s: x-axis values (parameter a)
+    :param actual_dist: The actual distribution values
+    :param normal_dist: The normal approximation distribution values
+    :param velocity_type: Type of velocity ('v' or 'omega')
+    """
+    plt.figure(figsize=(10, 6))
+
+    # Set style for better aesthetics
+    plt.style.use('seaborn-whitegrid')
+
+    downsampled_a_s = a_s[::10]
+    downsampled_actual_dist = actual_dist[::10]
+    downsampled_normal_dist = normal_dist[::10]
+
+    # Plot with enhanced styling
+    plt.plot(downsampled_a_s, downsampled_actual_dist, 'o', color='#1f77b4', label="Actual Distribution",
+             markersize=3, alpha=0.5)
+    plt.plot(downsampled_a_s, downsampled_normal_dist, color='#ff7f0e', label="Normal Approximation",
+             linestyle='-', linewidth=2)
+
+    # Add labels and title with better styling
+    plt.xlabel("Parameter (a)", fontsize=12, fontweight='bold')
+    plt.ylabel("Probability Density", fontsize=12, fontweight='bold')
+    plt.title(f"Distribution Comparison for {velocity_type}",
+              fontsize=14, fontweight='bold', pad=20)
+
+    # Improve legend
+    plt.legend(loc='best', frameon=True, fontsize=10)
+
+    # Enhance grid
+    plt.grid(True, alpha=0.3, linestyle='--')
+
+    # Tight layout for better spacing
+    plt.tight_layout()
+    plt.savefig(
+        f"distribution_comparison_{velocity_type}.pdf", dpi=300)  # , bbox_inches='tight')
+    plt.close()
 
 
 # Parameters of grid about the numerical integration
@@ -79,6 +123,10 @@ for v in vs:
     # Normal distribution
     sigma = np.sqrt(Sigma_v0**2 + Sigma_v**2 * (E_V**2 + Sigma_v0**2))
     Normal = scipy.stats.norm.pdf(a_s, loc=E_V, scale=sigma)
+
+    # Plot the distributions for visual comparison
+    plot_distributions(a_s, integral_results, Normal,
+                       "Forward Velocity" if v == "v" else "Angular Velocity")
 
     KL_normal.append(Simpson_integral(
         Normal * np.log2(Normal / integral_results), len(a_s), step_size))
