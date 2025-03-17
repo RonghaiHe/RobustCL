@@ -1,0 +1,34 @@
+session_name: robust-cl-experiment
+
+environment:
+  COMM_PROB_1: "0.1"
+  COMM_PROB_2: "0.5"
+  COMM_PROB_3: "0.9"
+  MISSION: "${MISSION:-0}"  # Default to 0 if not set
+
+options:
+  default-command: /bin/bash
+
+windows:
+- window_name: experiments
+  layout: tiled
+  shell_command_before:
+    - conda activate robust_cl # Activate the virtual conda environment
+    - |
+      if [ "$MISSION" = "2" ]; then
+        export TYPES_ARG="--types 28"
+      else
+        export TYPES_ARG="--types -1 6 0 2 12 28"
+      fi
+  panes:
+    # Communication probability 0.1
+    - shell_command:
+      - python main.py --comm_fail_prob $COMM_PROB_1 $TYPES_ARG --mission $MISSION
+
+    # Communication probability 0.5
+    - shell_command:
+      - python main.py --comm_fail_prob $COMM_PROB_2 $TYPES_ARG --mission $MISSION
+
+    # Communication probability 0.9
+    - shell_command:
+      - python main.py --comm_fail_prob $COMM_PROB_3 $TYPES_ARG --mission $MISSION
